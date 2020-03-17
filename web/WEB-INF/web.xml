@@ -2,7 +2,7 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>UserServlet</servlet-name>
-        <servlet-class>servlets.UserServlet</servlet-class>
+        <servlet-class>service.UserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
@@ -11,7 +11,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>CreateAccServlet</servlet-name>
-        <servlet-class>servlets.CreateAccountServlet</servlet-class>
+        <servlet-class>service.CreateAccountServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CreateAccServlet</servlet-name>
@@ -20,17 +20,19 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>CreateUserServlet</servlet-name>
-        <servlet-class>servlets.CreateUserServlet</servlet-class>
+        <servlet-class>service.CreateUserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CreateUserServlet</servlet-name>
         <url-pattern>/CreateUser</url-pattern>
         <url-pattern>/createuser-registry</url-pattern>
     </servlet-mapping>
+    
+    
     <servlet>
         <servlet-name>UpdateAccountServlet</servlet-name>
-        <servlet-class>servlets.UpdateAccountServlet</servlet-class>
-    </servlet>
+        <servlet-class>service.UpdateAccountServlet</servlet-class>
+    </servlet> 
     <servlet-mapping>
         <servlet-name>UpdateAccountServlet</servlet-name>
         <url-pattern>/UpdateAccount</url-pattern>
@@ -38,20 +40,23 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>DepositServlet</servlet-name>
-        <servlet-class>servlets.DepositServlet</servlet-class>
-    </servlet>
+        <servlet-class>service.DepositServlet</servlet-class>
+    </servlet> 
     <servlet-mapping>
         <servlet-name>DepositServlet</servlet-name>
         <url-pattern>/DepositServlet</url-pattern>
     </servlet-mapping>
-    <servlet>
+    
+     <servlet>
         <servlet-name>RetireServlet</servlet-name>
-        <servlet-class>servlets.RetireServlet</servlet-class>
-    </servlet>
+        <servlet-class>service.RetireServlet</servlet-class>
+    </servlet> 
     <servlet-mapping>
         <servlet-name>RetireServlet</servlet-name>
         <url-pattern>/RetireServlet</url-pattern>
     </servlet-mapping>
+  
+    
     <session-config>
         <session-timeout>
             30

@@ -3,49 +3,45 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlets;
+package service;
 
-import services.AccountService;
-import services.TransferService;
+import dao.UserService;
 import java.io.IOException;
-import java.util.Optional;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Account;
-import model.Transfer;
+import model.User;
 
 /**
  *
  * @author Extreme PC
  */
 @WebServlet(
-        name = "RetireServlet",
-        urlPatterns = {"/Retire"}
+        name = "CreateUserServlet",
+        urlPatterns = {"/CreateUser", "/createuser-registry"}
 )
-public class RetireServlet  extends HttpServlet{
-      private void processRequest(
+public class CreateUserServlet extends HttpServlet {
+
+    private UserService userservice;
+
+    private void processRequest(
             HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        AccountService accountservice = new AccountService();
-        TransferService transferservice = new TransferService();
-        Optional<Account> aux = null;
-        aux = accountservice.getAccount(request.getParameter("numcuenta"));
-        double balance = aux.get().getBalance();
-        double sub = balance - Double.parseDouble(request.getParameter("monto"));
-        accountservice.updateAllAccount(aux.get().getId(), aux.get().getTransactionLimit(), aux.get().getIsActive(), sub);
-        Transfer transaux = null;
-        
-        java.util.Date date = new java.util.Date();
-        java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-        
-        transaux = new Transfer(0, aux.get().getId(), 1, sub, sqlDate);
-        transferservice.createTransfer(transaux);
+        userservice = new UserService();
+        User useraux = null;
+        String pass = "";
+        String id = request.getParameter("cedula");
+        String name = request.getParameter("nombre");
+        String phone = request.getParameter("telefono");
+        int type = Integer.parseInt(request.getParameter("tipo"));
+        pass = passwordGenerator();
+        useraux = new User(0, name, phone, type, pass, id);
+        userservice.createUser(useraux);
         RequestDispatcher dispatcher = request.getRequestDispatcher(
-                "retiremenu.jsp");
+                "usercreatemenu.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -61,5 +57,18 @@ public class RetireServlet  extends HttpServlet{
             HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+    }
+
+    private String passwordGenerator() {
+        char aux = 33;
+        int random;
+        String pass = "";
+        for (int i = 0; i < 8; i++) {
+            random = (int) (92 * Math.random());
+            aux = (char) (aux + random);
+            pass = pass + aux;
+            aux = 33;
+        }
+        return pass;
     }
 }

@@ -1,4 +1,4 @@
-package servlets;
+package service;
 
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -7,7 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import services.UserService;
+import dao.UserService;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import model.User;

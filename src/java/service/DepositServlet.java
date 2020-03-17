@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlets;
+package service;
 
-import services.AccountService;
-import services.TransferService;
-import services.UserService;
+import dao.AccountService;
+import dao.TransferService;
+import dao.UserService;
 import java.io.IOException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;

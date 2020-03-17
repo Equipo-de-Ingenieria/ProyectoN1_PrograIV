@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package services;
+package dao;
 
 import data.DataBase;
 import java.io.IOException;
