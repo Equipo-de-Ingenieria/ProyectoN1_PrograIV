@@ -52,20 +52,18 @@
         <servlet-name>RetireServlet</servlet-name>
         <url-pattern>/RetireServlet</url-pattern>
     </servlet-mapping>
-<<<<<<< HEAD
+
     
     <servlet>
         <servlet-name>CreditServlet</servlet-name>
-        <servlet-class>service.CreditServlet</servlet-class>
+        <servlet-class>servlets.CreditServlet</servlet-class>
     </servlet> 
     <servlet-mapping>
         <servlet-name>CreditServlet</servlet-name>
         <url-pattern>/CreditServlet</url-pattern>
     </servlet-mapping>
   
-    
-=======
->>>>>>> 6cc16d7efa185b0cfdaa6e298a4e0caaf8bb6a74
+
     <session-config>
         <session-timeout>
             30
