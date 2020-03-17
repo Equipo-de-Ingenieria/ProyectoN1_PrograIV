@@ -55,6 +55,15 @@
         <servlet-name>RetireServlet</servlet-name>
         <url-pattern>/RetireServlet</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>CreditServlet</servlet-name>
+        <servlet-class>service.CreditServlet</servlet-class>
+    </servlet> 
+    <servlet-mapping>
+        <servlet-name>CreditServlet</servlet-name>
+        <url-pattern>/CreditServlet</url-pattern>
+    </servlet-mapping>
   
     
     <session-config>

@@ -28,7 +28,7 @@
                 </div>
                 <div id ="depositbox">
                     <div class="depContainer">
-                        <form class="loginForm" action="UserInfo">
+                        <form class="loginForm" action="CreditServlet">
                             <div class="box1">
                                 <span>
                                     Menu acreditacion
@@ -37,10 +37,10 @@
 
                             <div class="box2">
                                 <span>
-                                    <input class="user" type="number" placeholder="Cuenta a acreditar" name="userInput" required />
+                                    <input class="user" type="number" placeholder="Cuenta a acreditar" name="cuenta" required />
                                 </span>
                                 <span> 
-                                    <input class="password"  placeholder="Nombre completo" name="passInput" required/>
+                                    <input class="password"  placeholder="Nombre completo" name="nombre" required/>
                                 </span>
                             </div>
 
