@@ -7,6 +7,7 @@ package servlets;
 
 import java.io.IOException;
 import java.util.Optional;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,10 +33,14 @@ public class CreditServlet extends HttpServlet {
         AccountService accountservice = new AccountService();
         AccountTypeService typeservice = new AccountTypeService();
         Optional<Account> account = accountservice.getAccount(request.getParameter("cuenta"));
-        Optional<AccountType> type = typeservice.getAccount(request.getParameter(account.get).getAccountTypeID());
+        Optional<AccountType> type = typeservice.getAccount(account.get().getAccountTypeID());
         double interests = type.get().getInterest() * account.get().getBalance();
         double sum = interests + account.get().getBalance();
-
+        account.get().setBalance(sum);
+        accountservice.updateAllAccount(account.get().getId(), account.get().getTransactionLimit(), account.get().getIsActive(), sum);
+          RequestDispatcher dispatcher = request.getRequestDispatcher(
+                "creditmenu.jsp");
+        dispatcher.forward(request, response);
     }
 
     @Override
