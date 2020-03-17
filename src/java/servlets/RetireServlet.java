@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package service;
+package servlets;
 
-import dao.AccountService;
-import dao.TransferService;
+import services.AccountService;
+import services.TransferService;
 import java.io.IOException;
 import java.util.Optional;
 import javax.servlet.RequestDispatcher;
