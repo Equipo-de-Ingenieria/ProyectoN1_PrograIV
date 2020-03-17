@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package service;
+package servlets;
 
-import dao.AccountService;
+import services.AccountService;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,17 +13,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Account;
 
 /**
  *
  * @author Extreme PC
  */
 @WebServlet(
-        name = "CreateAccServlet",
-        urlPatterns = {"/CreateAcc", "/createacc-registry"}
+        name = "UpdateAccountServlet",
+        urlPatterns = {"/UpdateAcoount", "/update-account"}
 )
-public class CreateAccountServlet extends HttpServlet {
+public class UpdateAccountServlet extends HttpServlet {
 
     private final AccountService accountService = new AccountService();
 
@@ -31,24 +30,21 @@ public class CreateAccountServlet extends HttpServlet {
             HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        int idUser = Integer.parseInt(request.getParameter("idUsuario"));
-        String currencyName = request.getParameter("cambio");
+      
+        int idAccount = Integer.parseInt(request.getParameter("cuenta"));
         double transactionLimit = Double.parseDouble(request.getParameter("limite"));
-        double balance = 0;
-        int accountType = Integer.parseInt(request.getParameter("tipoCuenta"));
-        int isActive = 1;
-
-        Account account = new Account(balance, idUser, currencyName, accountType, transactionLimit, isActive);
+        int isActive = Integer.parseInt(request.getParameter("isActive"));
 
 
-        if (accountService.createAccount(account)) {
+
+        if (accountService.updateAccount(idAccount, transactionLimit, isActive)) {
             RequestDispatcher dispatcher = request.getRequestDispatcher(
-                    "accountopening.jsp");
+                    "accountupdate.jsp");
             dispatcher.forward(request, response);
         }
         else{
              RequestDispatcher dispatcher = request.getRequestDispatcher(
-                    "usercreatemenu.jsp");
+                    "accountupdate.jsp");
             dispatcher.forward(request, response);
         }
     }
