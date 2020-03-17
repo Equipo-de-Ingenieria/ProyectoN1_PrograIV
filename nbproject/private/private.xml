@@ -3,12 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Extreme%20PC/Documents/ProyectoN1_PrograIV/src/java/model/Account.java</file>
-            <file>file:/C:/Users/Extreme%20PC/Documents/ProyectoN1_PrograIV/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/Extreme%20PC/Documents/ProyectoN1_PrograIV/web/creditmenu.jsp</file>
-            <file>file:/C:/Users/Extreme%20PC/Documents/ProyectoN1_PrograIV/src/java/servlets/CreditServlet.java</file>
-            <file>file:/C:/Users/Extreme%20PC/Documents/ProyectoN1_PrograIV/src/java/model/AccountType.java</file>
-            <file>file:/C:/Users/Extreme%20PC/Documents/ProyectoN1_PrograIV/src/java/service/CreditServlet.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/servlets/CreditServlet.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/services/FavoriteService.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/services/AccountTypeService.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/servlets/CreateUserServlet.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/servlets/UserServlet.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/servlets/UpdateAccountServlet.java</file>
         </group>
     </open-files>
 </project-private>

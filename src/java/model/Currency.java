@@ -11,11 +11,12 @@ import java.io.Serializable;
  *
  * @author erick
  */
-public class Currency implements Serializable{
+public class Currency implements Serializable {
+
     private String name, symbol;
     private double buy, sell;
 
-    public Currency(String name, String symbol, double buy, double sell) {
+    public Currency(String name, double buy, double sell, String symbol) {
         this.name = name;
         this.symbol = symbol;
         this.buy = buy;
@@ -26,34 +27,34 @@ public class Currency implements Serializable{
     public String getName() {
         return name;
     }
-    
+
     public void setName(String name) {
         this.name = name;
     }
-    
+
     public String getSymbol() {
         return symbol;
     }
-    
+
     public void setSymbol(String symbol) {
         this.symbol = symbol;
     }
-    
+
     public double getBuy() {
         return buy;
     }
-    
+
     public void setBuy(double buy) {
         this.buy = buy;
     }
-    
+
     public double getSell() {
         return sell;
     }
-    
+
     public void setSell(double sell) {
         this.sell = sell;
     }
 //</editor-fold>
-    
+
 }
