@@ -77,8 +77,11 @@ public class DepositServlet extends HttpServlet {
 
         transaux = new Transfer(0, 1, aux.get().getId(), sum, sqlDate);
         transferservice.createTransfer(transaux);
+         String message = "";
+        message = "Se realizo el deposito exitosamente!";
+        request.setAttribute("message", message);
         RequestDispatcher dispatcher = request.getRequestDispatcher(
-                "depositmenu.jsp");
+                "messege.jsp");
         dispatcher.forward(request, response);
     }
 
