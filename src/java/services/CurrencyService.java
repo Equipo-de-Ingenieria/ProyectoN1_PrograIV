@@ -14,7 +14,6 @@ import java.sql.SQLException;
 import java.util.Optional;
 import java.util.Properties;
 import javax.swing.JOptionPane;
-import model.Account;
 import model.Currency;
 
 /**

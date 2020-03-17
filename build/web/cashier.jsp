@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/default.css" rel="stylesheet" type="text/css"/>
         <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,7 +14,7 @@
     <jsp:useBean class="model.User" id="aux" scope="session">
     </jsp:useBean>
     <%
-        
+
         User aux1 = (User) request.getAttribute("userData");
         aux.setUser(aux1);
     %>

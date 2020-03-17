@@ -30,8 +30,8 @@ public class AccountService {
     private static final String CMD_GETACCOUNTSBYUSERID = "select id, balance, user_id, currency_name, account_type_id, transaction_limit, is_active from account where user_id=?;";
     private static final String CMD_GETACCOUNTBYID = "select id, balance, user_id, currency_name, account_type_id, transaction_limit, is_active from account where id=? ";
 
-    private static final String CMD_UPDATEACCOUNTBYACCOUNTIDALL= "update account set transaction_limit=?, is_active=?, balance=? where id=?";
-        private static final String CMD_UPDATEACCOUNTBYACCOUNTID = "update account set transaction_limit=?, is_active=?  where id=?";
+    private static final String CMD_UPDATEACCOUNTBYACCOUNTIDALL = "update account set transaction_limit=?, is_active=?, balance=? where id=?";
+    private static final String CMD_UPDATEACCOUNTBYACCOUNTID = "update account set transaction_limit=?, is_active=?  where id=?";
 
     public boolean createAccount(Account account) {
         try (Connection connection = getConnection();
@@ -93,22 +93,27 @@ public class AccountService {
         return r;
     }
 
-    public List<Account> getAccounts(int userID) {
-        List<Account> accountList = new ArrayList<>();
+    public List<Account> getAccounts(int accountID) {
+        List<Account> r = new ArrayList<>();
+        Account account;
+
         try (Connection connection = getConnection();
-                Statement stm = connection.createStatement();
-                ResultSet rs = stm.executeQuery(CMD_GETACCOUNTSBYUSERID)) {
-            while (rs.next()) {
-                Account account = new Account(
-                        rs.getInt("id"),
-                        rs.getDouble("balance"),
-                        rs.getInt("user_id"),
-                        rs.getString("currency_name"),
-                        rs.getInt("account_type_id"),
-                        rs.getDouble("transaction_limit"),
-                        rs.getInt("is_active")
-                );
-                accountList.add(account);
+                PreparedStatement stm = connection.prepareStatement(CMD_GETACCOUNTSBYUSERID);) {
+            stm.clearParameters();
+            stm.setInt(1, accountID);
+            try (ResultSet rs = stm.executeQuery()) {
+                while (rs.next()) {
+                    account = new Account(
+                            rs.getInt("id"),
+                            rs.getDouble("balance"),
+                            rs.getInt("user_id"),
+                            rs.getString("currency_name"),
+                            rs.getInt("account_type_id"),
+                            rs.getDouble("transaction_limit"),
+                            rs.getInt("is_active")
+                    );
+                    r.add(account);
+                }
             }
         } catch (IOException
                 | ClassNotFoundException
@@ -116,9 +121,11 @@ public class AccountService {
                 | InstantiationException
                 | SQLException ex) {
             System.err.printf("Excepción: '%s'%n", ex.getMessage());
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
-        return accountList;
+        return r;
     }
+    
 
     public boolean updateAllAccount(int id, double transactionLimit, int isActive, double balance) {
         try (Connection connection = getConnection();
@@ -130,7 +137,7 @@ public class AccountService {
             stm.setInt(4, id);
 
             /* Los inserts se hacen con execute vs execute query*/
-                 if (stm.executeUpdate() != -1) {
+            if (stm.executeUpdate() != -1) {
                 return true;
             }
 
@@ -145,6 +152,7 @@ public class AccountService {
         return false;
 
     }
+
     public boolean updateAccount(int id, double transactionLimit, int isActive) {
         try (Connection connection = getConnection();
                 PreparedStatement stm = connection.prepareStatement(CMD_UPDATEACCOUNTBYACCOUNTID)) {
@@ -153,10 +161,10 @@ public class AccountService {
             stm.setDouble(1, transactionLimit);
             stm.setInt(2, isActive);
             stm.setInt(3, id);
- 
+
 
             /* Los inserts se hacen con execute vs execute query*/
-                 if (stm.executeUpdate() != -1) {
+            if (stm.executeUpdate() != -1) {
                 return true;
             }
 
@@ -171,6 +179,7 @@ public class AccountService {
         return false;
 
     }
+
     public Connection getConnection() throws
             ClassNotFoundException,
             IllegalAccessException,

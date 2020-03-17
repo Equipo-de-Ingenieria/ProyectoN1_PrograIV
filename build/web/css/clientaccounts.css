@@ -1,0 +1,282 @@
+
+/* Conglomera toda la pagina*/
+.wrapper{
+    position:fixed;
+
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;   
+
+    background-color: #DDDDDD;    
+    text-align: center;
+}
+
+/* Conglomera un seccion de la pagina*/
+.subwrapper{
+    width: 85%;
+    height:100%;
+    display: inline-block;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+/*Menu de barra*/
+.menubar{
+    width: 100%;
+    height: auto;
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+}
+
+.menubar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    width: 100%;
+}
+
+.menubar  li {
+    float: left;
+}
+
+.menubar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 110%;
+}
+.nombre{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 110%;
+    background-color: darkcyan;
+}
+.menubar li a:hover{
+    transform: scale(1.1);
+}
+
+.menubar li a:hover:not(.active) {  
+    background-color: #111;
+}
+
+.menubar .active {
+    background-color: #0074D9;
+}
+/*Menu de barra*/
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+/* Conglomera todas secciones dentro del subwrapper*/
+.maincontents{
+    height: 100%;
+    width: 100%;
+
+
+    background-image: url('./images/client.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    text-align: center;
+
+}
+
+/*Conglomera la seccion de las cuentas*/
+.containerBox{
+    display: inline-block;
+    width: 80%;
+    height: 75%;
+
+    margin-top: 5%;
+
+    background: linear-gradient(360deg,#0250c5, #d43f8d);
+    border-radius: 3.5%;
+
+
+}
+
+.containerTable{
+    display: flex;
+    justify-content: center;
+}
+
+
+table {
+    border-spacing: 1;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+table * {
+    position: relative;
+}
+table td, table th {
+    padding-left: 8px;
+}
+table thead tr {
+    height: 60px;
+    background: #36304a;
+}
+table tbody tr {
+    height: 50px;
+}
+table tbody tr:last-child {
+    border: 0;
+}
+table td, table th {
+    text-align: left;
+}
+table td.l, table th.l {
+    text-align: right;
+}
+table td.c, table th.c {
+    text-align: center;
+}
+table td.r, table th.r {
+    text-align: center;
+}
+
+
+.head th{
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.2;
+    font-weight: unset;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tbody tr {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    color: #808080;
+    line-height: 1.2;
+    font-weight: unset;
+}
+
+tbody tr:hover {
+    color: #555555;
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+.column1 {
+    width: 260px;
+    padding-left: 40px;
+}
+
+.column2 {
+    width: 160px;
+}
+
+.column3 {
+    width: 245px;
+}
+
+.column4 {
+    width: 110px;
+    text-align: right;
+}
+
+.column5 {
+    width: 170px;
+    text-align: right;
+}
+
+.column6 {
+    width: 222px;
+    text-align: right;
+    padding-right: 62px;
+}
+
+
+@media screen and (max-width: 992px) {
+    table {
+        display: block;
+    }
+    table > *, table tr, table td, table th {
+        display: block;
+    }
+    table thead {
+        display: none;
+    }
+    table tbody tr {
+        height: auto;
+        padding: 37px 0;
+    }
+    table tbody tr td {
+        padding-left: 40% !important;
+        margin-bottom: 24px;
+    }
+    table tbody tr td:last-child {
+        margin-bottom: 0;
+    }
+    table tbody tr td:before {
+        font-family: 'Raleway', sans-serif;
+        font-size: 14px;
+        color: #999999;
+        line-height: 1.2;
+        font-weight: unset;
+        position: absolute;
+        width: 40%;
+        left: 30px;
+        top: 0;
+    }
+    table tbody tr td:nth-child(1):before {
+        content: "ID";
+    }
+    table tbody tr td:nth-child(2):before {
+        content: "Moneda";
+    }
+    table tbody tr td:nth-child(3):before {
+        content: "Balance";
+    }
+    table tbody tr td:nth-child(4):before {
+        content: "Tipo";
+    }
+    table tbody tr td:nth-child(5):before {
+        content: "Limite";
+    }
+    table tbody tr td:nth-child(6):before {
+        content: "Estado";
+    }
+
+    .column4,
+    .column5,
+    .column6 {
+        text-align: left;
+    }
+
+    .column4,
+    .column5,
+    .column6,
+    .column1,
+    .column2,
+    .column3 {
+        width: 100%;
+    }
+
+    tbody tr {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .containerTable {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+

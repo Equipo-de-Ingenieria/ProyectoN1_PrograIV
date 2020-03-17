@@ -4,19 +4,20 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/default.css" rel="stylesheet" type="text/css"/>
         <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Bank Crosaint</title>
     </head>
-      <jsp:useBean class="model.User" id="aux" scope="session">
-                </jsp:useBean>
+    <jsp:useBean class="model.User" id="aux" scope="session">
+    </jsp:useBean>
     <body>
         <div id="wrapper">
             <div id="content">
                 <div id="menubar">
                     <ul>
-                          <li class="nombre"><%= aux.getName()%></li>
+                        <li class="nombre"><%= aux.getName()%></li>
                         <li><a href="depositmenu.jsp">Deposito</a></li>
                         <li><a href="retiremenu.jsp">Retiro</a></li>
                         <li><a href="transfermenu.jsp">Transferencias</a></li>
