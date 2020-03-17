@@ -33,6 +33,7 @@ public class RetireServlet extends HttpServlet {
     private void processRequest(
             HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String message = "";
         AccountService accountservice = new AccountService();
         TransferService transferservice = new TransferService();
         CurrencyService currencyservice = new CurrencyService();
@@ -42,8 +43,6 @@ public class RetireServlet extends HttpServlet {
         String typeCurrency = request.getParameter("cambio");
         Optional<Currency> currency = currencyservice.getCurrency(request.getParameter("cambio"));
         double balance = aux.get().getBalance();
-        //PREGUNTAR SI TIENE PLATA
-
         //MONEDA
         if (aux.get().getCurrencyName().equals("CRC")) {//SI LA CUENTA ES COLONES
             if ("USD".equals(typeCurrency)) {
@@ -79,9 +78,12 @@ public class RetireServlet extends HttpServlet {
 
             transaux = new Transfer(0, aux.get().getId(), 1, sub, sqlDate);
             transferservice.createTransfer(transaux);
+        }else{
+            message = "Error, dinero insuficiente";
         }
+        request.setAttribute("message", message);
         RequestDispatcher dispatcher = request.getRequestDispatcher(
-                "retiremenu.jsp");
+                "messege.jsp");
         dispatcher.forward(request, response);
 
     }
