@@ -38,8 +38,11 @@ public class CreditServlet extends HttpServlet {
         double sum = interests + account.get().getBalance();
         account.get().setBalance(sum);
         accountservice.updateAllAccount(account.get().getId(), account.get().getTransactionLimit(), account.get().getIsActive(), sum);
-          RequestDispatcher dispatcher = request.getRequestDispatcher(
-                "creditmenu.jsp");
+           String message = "";
+        message = "Se realizo el credito exitosamente!";
+        request.setAttribute("message", message);
+        RequestDispatcher dispatcher = request.getRequestDispatcher(
+                "messege.jsp");
         dispatcher.forward(request, response);
     }
 

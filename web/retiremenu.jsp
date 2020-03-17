@@ -48,6 +48,11 @@
                                 <span> 
                                     <input class="password" type="number" placeholder="Monto" name="monto" required/>
                                 </span>
+                                   <select class = "change" name = "cambio">
+                                    <option value="USD" style="text-align: center">Dolar</option>
+                                    <option value="CRC" style="text-align: center">Colon</option>
+                                    <option value="EUR" style="text-align: center">Euro</option>
+                                </select>
                             </div>
 
                             <div class="box3">
