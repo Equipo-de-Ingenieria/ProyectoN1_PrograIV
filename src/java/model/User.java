@@ -28,6 +28,19 @@ public class User implements Serializable {
         this.userID = userID;
     }
 
+    public User(String name, String phone, int type, String userID) {
+        this.userID = userID;
+        this.name = name;
+        this.phone = phone;
+        this.type = type;
+    }
+
+    public User(String name) {
+        this.name = name;
+    }
+    
+    
+
     public User() {
 
     }

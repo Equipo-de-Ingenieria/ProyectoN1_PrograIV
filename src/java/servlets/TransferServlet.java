@@ -5,8 +5,6 @@
  */
 package servlets;
 
-import services.AccountService;
-import services.TransferService;
 import java.io.IOException;
 import java.util.Optional;
 import javax.servlet.RequestDispatcher;
@@ -18,21 +16,24 @@ import javax.servlet.http.HttpServletResponse;
 import model.Account;
 import model.Currency;
 import model.Transfer;
+import services.AccountService;
 import services.CurrencyService;
+import services.TransferService;
 
 /**
  *
- * @author Extreme PC
+ * @author Erick
  */
 @WebServlet(
-        name = "DepositServlet",
-        urlPatterns = {"/DepositServlet"}
+        name = "TransferServlet",
+        urlPatterns = {"/TransferClient", "/transfer-client"}
 )
-public class DepositServlet extends HttpServlet {
+public class TransferServlet extends HttpServlet {
 
     private void processRequest(
             HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         AccountService accountservice = new AccountService();
         TransferService transferservice = new TransferService();
         CurrencyService currencyservice = new CurrencyService();
@@ -43,23 +44,23 @@ public class DepositServlet extends HttpServlet {
         Optional<Currency> currency = currencyservice.getCurrency(request.getParameter("cambio"));
         //MONEDA
         if (aux.get().getCurrencyName().equals("CRC")) {//SI LA CUENTA ES COLONES
-            if ("USD".equals(typeCurrency)) { 
+            if ("USD".equals(typeCurrency)) {
                 balance1 = balance1 * 560;
-            } else if("EUR".equals(typeCurrency)){
+            } else if ("EUR".equals(typeCurrency)) {
                 balance1 = balance1 * 700;
             }
         } else if ("USD".equals(aux.get().getCurrencyName())) { //SI LA CUENTA ES DOLARES
             if ("CRC".equals(typeCurrency)) {
                 balance1 = balance1 / 570;
-            }else if("EUR".equals(typeCurrency)){
-                balance1 = balance1 /0.89;
+            } else if ("EUR".equals(typeCurrency)) {
+                balance1 = balance1 / 0.89;
             }
-        }else if ("EUR".equals(aux.get().getCurrencyName())) { //SI LA CUENTA ES EUROS
+        } else if ("EUR".equals(aux.get().getCurrencyName())) { //SI LA CUENTA ES EUROS
             if ("USD".equals(typeCurrency)) {
                 balance1 = balance1 / 1.12;
-            }else if("CRC".equals(typeCurrency)){
-                balance1 = balance1 /0.0016;
-            }
+            } else if ("CRC".equals(typeCurrency)) {
+                balance1 = balance1 / 0.0016;
+            }           
         }
 
         //CALCULOS
@@ -73,7 +74,7 @@ public class DepositServlet extends HttpServlet {
 
         transaux = new Transfer(0, 1, aux.get().getId(), sum, sqlDate);
         transferservice.createTransfer(transaux);
-         String message = "";
+        String message = "";
         message = "Se realizo el deposito exitosamente!";
         request.setAttribute("message", message);
         RequestDispatcher dispatcher = request.getRequestDispatcher(

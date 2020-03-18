@@ -17,10 +17,12 @@ public class UserService {
 
     private static final String CMD_RECUPERAR
             = "SELECT id, name, phone, type, password, id_user FROM user WHERE id=? AND password=?; ";
+    private static final String CMD_GET_USER_BY_ID = "SELECT id, name, phone, type, id_user FROM user WHERE id=? ";
     private static final String CMD_LISTAR
             = "SELECT id, apellidos, nombre FROM estudiante ORDER BY apellidos; ";
     private static final String CMD_CREATEUSER = "insert into User(name, phone, type, password, id_user) values (?, ?, ?, ?, ?)";
- public boolean createUser(User user) {
+
+    public boolean createUser(User user) {
         try (Connection connection = getConnection();
                 PreparedStatement stm = connection.prepareStatement(CMD_CREATEUSER)) {
             stm.clearParameters();
@@ -47,6 +49,7 @@ public class UserService {
         return false;
 
     }
+
     public Optional<User> getUser(String id, String password) {
         Optional<User> r = Optional.empty();
         try (Connection connection = getConnection();
@@ -64,6 +67,34 @@ public class UserService {
                             rs.getString("phone"),
                             rs.getInt("type"),
                             rs.getString("password"),
+                            rs.getString("id_user")
+                    ));
+                }
+            }
+        } catch (IOException
+                | ClassNotFoundException
+                | IllegalAccessException
+                | InstantiationException
+                | SQLException ex) {
+            System.err.printf("Excepción: '%s'%n", ex.getMessage());
+        }
+        return r;
+    }
+
+    public Optional<User> getUserByID(int id) {
+        Optional<User> r = Optional.empty();
+        try (Connection connection = getConnection();
+                PreparedStatement stm = connection.prepareStatement(CMD_GET_USER_BY_ID);) {
+            stm.clearParameters();
+
+            stm.setInt(1, id);
+            
+            try (ResultSet rs = stm.executeQuery()) {
+                if (rs.next()) {
+                    r = Optional.of(new User(
+                            rs.getString("name"),
+                            rs.getString("phone"),
+                            rs.getInt("type"),
                             rs.getString("id_user")
                     ));
                 }

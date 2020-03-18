@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import javax.swing.JOptionPane;
 import model.Account;
 
 /**
@@ -67,7 +68,7 @@ public class FavoriteService {
             stm.setInt(2, idAccount);
 
             /* Los inserts se hacen con execute vs execute query*/
-            if (stm.execute()) {
+            if (stm.executeUpdate() != -1) {
                 return true;
             }
 

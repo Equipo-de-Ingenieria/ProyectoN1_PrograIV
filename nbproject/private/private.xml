@@ -3,13 +3,36 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Extreme%20PC/Documents/ProyectoN1_PrograIV/web/retiremenu.jsp</file>
-            <file>file:/C:/Users/Extreme%20PC/Documents/ProyectoN1_PrograIV/web/css/default.css</file>
-            <file>file:/C:/Users/Extreme%20PC/Documents/ProyectoN1_PrograIV/src/java/services/CurrencyService.java</file>
-            <file>file:/C:/Users/Extreme%20PC/Documents/ProyectoN1_PrograIV/web/accountopening.jsp</file>
-            <file>file:/C:/Users/Extreme%20PC/Documents/ProyectoN1_PrograIV/web/css/accountopening.css</file>
-            <file>file:/C:/Users/Extreme%20PC/Documents/ProyectoN1_PrograIV/web/depositmenu.jsp</file>
-            <file>file:/C:/Users/Extreme%20PC/Documents/ProyectoN1_PrograIV/src/java/servlets/DepositServlet.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/client.jsp</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/accountupdate.jsp</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/clientaccounts.jsp</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/usercreatemenu.jsp</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/services/FavoriteService.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/servlets/CreditServlet.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/servlets/RetireServlet.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/creditmenu.jsp</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/servlets/CreateUserServlet.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/css/client.css</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/retiremenu.jsp</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/css/login.css</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/services/CurrencyService.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/css/default.css</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/accountopening.jsp</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/transfermenu.jsp</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/model/Account.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/services/AccountService.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/css/accountopening.css</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/depositmenu.jsp</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/cashier.jsp</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/servlets/DepositServlet.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/accountmenu.jsp</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/servlets/UpdateAccountServlet.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/syncmenu.jsp</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/servlets/CreateAccountServlet.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/servlets/UserServlet.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/index.jsp</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/css/clientaccounts.css</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/clienttransfermenu.jsp</file>
         </group>
     </open-files>
 </project-private>

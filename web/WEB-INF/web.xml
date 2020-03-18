@@ -53,7 +53,6 @@
         <url-pattern>/RetireServlet</url-pattern>
     </servlet-mapping>
 
-    
     <servlet>
         <servlet-name>CreditServlet</servlet-name>
         <servlet-class>servlets.CreditServlet</servlet-class>
@@ -61,6 +60,37 @@
     <servlet-mapping>
         <servlet-name>CreditServlet</servlet-name>
         <url-pattern>/CreditServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>
+            TransferServlet
+        </servlet-name>
+        <servlet-class>
+            servlets.TransferServlet
+        </servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>
+            TransferServlet
+        </servlet-name>
+        <url-pattern>
+            /TransferClient
+        </url-pattern>
+        <url-pattern>
+            /transfer-client
+        </url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>SyncServlet</servlet-name>
+        <servlet-class>servlets.SyncServlet</servlet-class>
+    </servlet> 
+    <servlet-mapping>
+        <servlet-name>SyncServlet</servlet-name>
+        <url-pattern>/Sync</url-pattern>
+        <url-pattern>/sync-account</url-pattern>
     </servlet-mapping>
   
 

@@ -39,11 +39,16 @@ public class Account implements Serializable {
         this.isActive = isActive;
     }
 
-    
-    
+    public void setAccount(Account account) {
+        this.id = account.getId();
+        this.accountTypeID = account.getAccountTypeID();
+        this.balance = account.getBalance();
+        this.userId = account.getUserId();
+        this.currencyName = account.getCurrencyName();
+        this.transactionLimit = account.getTransactionLimit();
+        this.isActive = account.isActive;
+    }
 
-    
-    
 //<editor-fold defaultstate="collapsed" desc="Getter and Setters">
     public int getId() {
         return id;

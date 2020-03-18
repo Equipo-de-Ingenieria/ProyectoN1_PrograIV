@@ -78,7 +78,7 @@
     float: left;
 }
 
- #menubar li a {
+#menubar li a {
     display: block;
     color: white;
     text-align: center;
@@ -108,12 +108,12 @@
 }
 
 .box1{
-       margin-top: 12%;
-    margin-bottom: 12%;
+    margin-top: 12%;
+    margin-bottom: 5%;
     font-size: 150%;
 
 }
-.box2 input{
+.box2 input, label{
     /*Se usa para que no salgan del container*/
     box-sizing:border-box;
     margin-bottom: 10%;
@@ -121,9 +121,13 @@
 
     opacity: 0.9;
 
-       width: 60%;
+    width: 60%;
     padding: 2% 3%;
 
+}
+.box2 button{
+    width: 50%;
+    padding: 5% 15%;
 }
 
 
