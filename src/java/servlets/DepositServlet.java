@@ -71,7 +71,7 @@ public class DepositServlet extends HttpServlet {
         java.util.Date date = new java.util.Date();
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
-        transaux = new Transfer(0, 1, aux.get().getId(), sum, sqlDate);
+        transaux = new Transfer(0, 1, aux.get().getId(), sum, sqlDate, "Deposito Cajero");
         transferservice.createTransfer(transaux);
          String message = "";
         message = "Se realizo el deposito exitosamente!";

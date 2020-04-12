@@ -14,7 +14,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-import model.Account;
 import model.Transfer;
 
 /**
@@ -23,9 +22,9 @@ import model.Transfer;
  */
 public class TransferService {
 
-    private static final String CREATETRANSFER = "insert into Transfer(depositor_account, creditor_account, amount, date) values (?, ?, ?, ?)";
-    private static final String LISTTRANSFERSBYDEPOSITIOR = "select depositor_account, creditor_account, amount, date from transfer where depositor_account = ?";
-    private static final String LISTTRANSFERSBYDECREDITOR = "select depositor_account, creditor_account, amount, date from transfer where creditor_account = ?";
+    private static final String CREATETRANSFER = "insert into Transfer(depositor_account, creditor_account, amount, date, detail) values (?, ?, ?, ?, ?, ?)";
+    private static final String LISTTRANSFERSBYDEPOSITIOR = "select depositor_account, creditor_account, amount, date, detail from transfer where depositor_account = ?";
+    private static final String LISTTRANSFERSBYDECREDITOR = "select depositor_account, creditor_account, amount, date, detail from transfer where creditor_account = ?";
 
     public List<Transfer> getDepositorTransfers(int depositorID) {
 
@@ -35,6 +34,7 @@ public class TransferService {
                 PreparedStatement stm = connection.prepareStatement(LISTTRANSFERSBYDEPOSITIOR)) {
             stm.clearParameters();
             stm.setInt(1, depositorID);
+            
             try (ResultSet rs = stm.executeQuery()) {
                 while (rs.next()) {
                     Transfer transfer = new Transfer(
@@ -42,7 +42,8 @@ public class TransferService {
                             rs.getInt("depositior_account"),
                             rs.getInt("creditor_account"),
                             rs.getDouble("amount"),
-                            rs.getDate("date")
+                            rs.getDate("date"),
+                            rs.getString("detail")
                     );
                     transfersDepositor.add(transfer);
                 }
@@ -72,7 +73,8 @@ public class TransferService {
                             rs.getInt("depositior_account"),
                             rs.getInt("creditor_account"),
                             rs.getDouble("amount"),
-                            rs.getDate("date")
+                            rs.getDate("date"),
+                            rs.getString("detail")
                     );
                     transfersDepositor.add(transfer);
                 }
@@ -96,6 +98,7 @@ public class TransferService {
             stm.setInt(2, transfer.getCreditorAccount());
             stm.setDouble(3, transfer.getAmount());
             stm.setDate(4, transfer.getDate());
+            stm.setString(5, transfer.getDetail());
 
             /* Los inserts se hacen con execute vs execute query*/
                   if (stm.executeUpdate() != -1) {

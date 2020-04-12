@@ -24,6 +24,7 @@
             List<Account> accounts = service.getAccounts(aux.getId());
         %>
 
+
         <div class="wrapper">
             <div class="subwrapper">
                 <div class="menubar">
@@ -39,7 +40,7 @@
                     <div class="maincontents">
                         <div class="containerBox">
                             <div class="containerTable">
-                                <table class ="table" id="accountsTable">
+                                <table class ="table">
                                     <thead>
                                         <tr class="head">
                                             <th class="column1">ID</th>
@@ -70,7 +71,7 @@
                                             index = i - 1;
 
                                             out.println("<tr>");
-                                            out.println(String.format("<td class=\"%s\"><a onclick=\"openModal(%d)\">%d</a></td>", "column1", accounts.get(index).getId(), accounts.get(index).getId()));
+                                            out.println(String.format("<td class=\"%s\">%d</td>", "column1", accounts.get(index).getId()));
                                             out.println(String.format("<td class=\"%s\">%s</td>", "column2", accounts.get(index).getCurrencyName()));
                                             out.println(String.format("<td class=\"%s\">%f</td>", "column3", accounts.get(index).getBalance()));
 
@@ -93,20 +94,7 @@
                         </div>
                     </div>
                 </div>
-
-
-                <div class="modal" id="movementModal">
-                    <div class="modal-content">
-                        <span class="closeBtn" onclick="closeModal()">X</span>
-                    </div>
-                </div>
-
-
-
             </div>
         </div>
-
-        <script src="mainjs.js"></script>
-        
     </body>
 </html>

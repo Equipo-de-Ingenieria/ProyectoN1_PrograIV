@@ -11,7 +11,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -27,11 +26,14 @@ public class AccountService {
 
     private static final String CMD_CREATEACCOUNT = "insert into Account (balance, user_id, currency_name, account_type_id, transaction_limit, is_active) values (?, ?, ?, ?, ?, ?)";
 
-    private static final String CMD_GETACCOUNTSBYUSERID = "select id, balance, user_id, currency_name, account_type_id, transaction_limit, is_active from account where user_id=?;";
-    private static final String CMD_GETACCOUNTBYID = "select id, balance, user_id, currency_name, account_type_id, transaction_limit, is_active from account where id=? ";
+    private static final String CMD_GETACCOUNTSBYUSERID = "select id, balance, user_id, currency_name, account_type_id, transaction_limit, is_active, current_limit from account where user_id=?;";
+    private static final String CMD_GETACCOUNTBYID = "select id, balance, user_id, currency_name, account_type_id, transaction_limit, is_active, current_limit from account where id=? ";
 
     private static final String CMD_UPDATEACCOUNTBYACCOUNTIDALL = "update account set transaction_limit=?, is_active=?, balance=? where id=?";
     private static final String CMD_UPDATEACCOUNTBYACCOUNTID = "update account set transaction_limit=?, is_active=?  where id=?";
+
+    private static final String CMD_UPDATEACCOUNCURRENTLIMITTBYID = "update account set current_limit =  ? where id=?";
+    private static final String CMD_UPDATE_ACCOUNT_BALANCE = "update account set balance = balance + ? where id=? and (balance + ? >= 0)";
 
     public boolean createAccount(Account account) {
         try (Connection connection = getConnection();
@@ -78,7 +80,8 @@ public class AccountService {
                             rs.getString("currency_name"),
                             rs.getInt("account_type_id"),
                             rs.getDouble("transaction_limit"),
-                            rs.getInt("is_active")
+                            rs.getInt("is_active"),
+                            rs.getDouble("current_limit")
                     ));
                 }
             }
@@ -110,7 +113,8 @@ public class AccountService {
                             rs.getString("currency_name"),
                             rs.getInt("account_type_id"),
                             rs.getDouble("transaction_limit"),
-                            rs.getInt("is_active")
+                            rs.getInt("is_active"),
+                            rs.getDouble("current_limit")
                     );
                     r.add(account);
                 }
@@ -125,7 +129,6 @@ public class AccountService {
         }
         return r;
     }
-    
 
     public boolean updateAllAccount(int id, double transactionLimit, int isActive, double balance) {
         try (Connection connection = getConnection();
@@ -165,6 +168,67 @@ public class AccountService {
 
             /* Los inserts se hacen con execute vs execute query*/
             if (stm.executeUpdate() != -1) {
+                return true;
+            }
+
+        } catch (IOException
+                | ClassNotFoundException
+                | IllegalAccessException
+                | InstantiationException
+                | SQLException ex) {
+            System.err.printf("Excepción: '%s'%n", ex.getMessage());
+
+        }
+        return false;
+
+    }
+
+    public boolean updateAccountCurrentLimit(int id, double amount) {
+        try (Connection connection = getConnection();
+                PreparedStatement stm = connection.prepareStatement(CMD_UPDATEACCOUNCURRENTLIMITTBYID)) {
+            stm.clearParameters();
+
+            stm.setDouble(1, amount);
+            stm.setInt(2, id);
+
+
+            /* Los inserts se hacen con execute vs execute query*/
+            int value = stm.executeUpdate();
+            if (value == 0 || value == -1) {
+                return false;
+            }
+            if (stm.executeUpdate() != -1) {
+                return true;
+            }
+
+        } catch (IOException
+                | ClassNotFoundException
+                | IllegalAccessException
+                | InstantiationException
+                | SQLException ex) {
+            System.err.printf("Excepción: '%s'%n", ex.getMessage());
+
+        }
+        return false;
+
+    }
+
+    public boolean updateAccountBalance(int id, double amount) {
+        try (Connection connection = getConnection();
+                PreparedStatement stm = connection.prepareStatement(CMD_UPDATE_ACCOUNT_BALANCE)) {
+            stm.clearParameters();
+
+            stm.setDouble(1, amount);
+            stm.setInt(2, id);
+            stm.setDouble(3, amount);
+
+
+            /* Los inserts se hacen con execute vs execute query*/
+            int value = stm.executeUpdate();
+            if (value == 0 || value == -1) {
+                return false;
+            }
+            if (value != -1) {
                 return true;
             }
 

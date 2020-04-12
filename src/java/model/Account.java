@@ -10,6 +10,7 @@ public class Account implements Serializable {
     private String currencyName;
     private double transactionLimit;
     private int isActive;
+    private double currentLimit;
 
     public Account(int id, double balance, int userId, String currencyName, int accountTypeID, double transactionLimit, int isActive) {
         this.id = id;
@@ -38,6 +39,17 @@ public class Account implements Serializable {
         this.transactionLimit = transactionLimit;
         this.isActive = isActive;
     }
+    
+        public Account(int id, double balance, int userId, String currencyName, int accountTypeID, double transactionLimit, int isActive, double currentLimit) {
+        this.id = id;
+        this.accountTypeID = accountTypeID;
+        this.balance = balance;
+        this.userId = userId;
+        this.currencyName = currencyName;
+        this.transactionLimit = transactionLimit;
+        this.isActive = isActive;
+        this.currentLimit = currentLimit;
+    }
 
     public void setAccount(Account account) {
         this.id = account.getId();
@@ -48,6 +60,10 @@ public class Account implements Serializable {
         this.transactionLimit = account.getTransactionLimit();
         this.isActive = account.isActive;
     }
+
+
+    
+    
 
 //<editor-fold defaultstate="collapsed" desc="Getter and Setters">
     public int getId() {
@@ -105,6 +121,14 @@ public class Account implements Serializable {
     public void setIsActive(int isActive) {
         this.isActive = isActive;
     }
-//</editor-fold>
 
+    public double getCurrentLimit() {
+        return currentLimit;
+    }
+
+    public void setCurrentLimit(double currentLimit) {
+        this.currentLimit = currentLimit;
+    }
+
+//</editor-fold>
 }

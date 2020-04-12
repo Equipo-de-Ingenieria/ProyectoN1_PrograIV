@@ -76,7 +76,7 @@ public class RetireServlet extends HttpServlet {
             java.util.Date date = new java.util.Date();
             java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
-            transaux = new Transfer(0, aux.get().getId(), 1, sub, sqlDate);
+            transaux = new Transfer(0, aux.get().getId(), 1, sub, sqlDate, "Retiro Cajero");
             transferservice.createTransfer(transaux);
         }else{
             

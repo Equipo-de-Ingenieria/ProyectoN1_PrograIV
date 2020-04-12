@@ -92,6 +92,16 @@
         <url-pattern>/Sync</url-pattern>
         <url-pattern>/sync-account</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ClientTransferServlet</servlet-name>
+        <servlet-class>servlets.ClientTransfer</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ClientTransferServlet</servlet-name>
+        <url-pattern>/ClientTransfer</url-pattern>
+        <url-pattern>/client-transfer</url-pattern>
+    </servlet-mapping>
   
 
     <session-config>

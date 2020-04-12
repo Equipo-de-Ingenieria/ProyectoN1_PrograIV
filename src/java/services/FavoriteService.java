@@ -14,8 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-import javax.swing.JOptionPane;
-import model.Account;
+import model.Favorite;
 
 /**
  *
@@ -27,9 +26,9 @@ public class FavoriteService {
 
     private static final String CMD_LISTFAVORITESBYUSER = "select id_user, id_account from favorite where id_user=?";
 
-    public List<Account> getAccounts(int userID) {
+    public List<Favorite> getAccounts(int userID) {
 
-        List<Account> accountList = new ArrayList<>();
+        List<Favorite> favoriteList = new ArrayList<>();
 
         try (Connection connection = getConnection();
                 PreparedStatement stm = connection.prepareStatement(CMD_LISTFAVORITESBYUSER);) {
@@ -37,16 +36,11 @@ public class FavoriteService {
             stm.setInt(1, userID);
             try (ResultSet rs = stm.executeQuery()) {
                 while (rs.next()) {
-                    Account account = new Account(
-                            rs.getInt("id"),
-                            rs.getDouble("balance"),
-                            rs.getInt("user_id"),
-                            rs.getString("currency_name"),
-                            rs.getInt("account_type_id"),
-                            rs.getDouble("transaction_limit"),
-                            rs.getInt("is_active")
+                    Favorite favorite = new Favorite(
+                            rs.getInt("id_user"),
+                            rs.getInt("id_account")
                     );
-                    accountList.add(account);
+                    favoriteList.add(favorite);
                 }
             }
         } catch (IOException
@@ -56,7 +50,7 @@ public class FavoriteService {
                 | SQLException ex) {
             System.err.printf("Excepción: '%s'%n", ex.getMessage());
         }
-        return accountList;
+        return favoriteList;
     }
 
     public boolean createFavorite(int idUser, int idAccount) {
