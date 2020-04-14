@@ -3,11 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/mainjs.js</file>
-            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/css/clienttransfermenu.css</file>
-            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/clientaccounts.jsp</file>
-            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/css/clientaccounts.css</file>
-            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/clienttransfermenu.jsp</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/movements.jsp</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/services/TransferService.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/model/Account.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/servlets/movementServlet.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/services/FavoriteService.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/model/Movement.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/servlets/CreditServlet.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/servlets/RetireServlet.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/model/Transfer.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/servlets/DepositServlet.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/servlets/CreateAccountServlet.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/servlets/ClientTransfer.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/movementDisplay.jsp</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/web/retiremenu.jsp</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/services/CurrencyService.java</file>
+            <file>file:/C:/Users/Erick/Documents/ProyectoN1_PrograIV/src/java/model/Favorite.java</file>
         </group>
     </open-files>
 </project-private>

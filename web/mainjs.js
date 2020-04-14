@@ -12,9 +12,14 @@ var closeBtn = document.getElementById('closeBtn');
 function openModal(id){
    console.log("El ID " + id);
    modal.style.display = 'block';
+   
 }
 
 function closeModal(){
     modal.style.display = 'none';
+}
+
+function getMovement(id){
+    
 }
     

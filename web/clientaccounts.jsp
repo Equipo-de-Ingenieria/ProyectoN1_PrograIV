@@ -32,7 +32,7 @@
                             <li><a href="clientaccounts.jsp">Cuentas</a></li>
                             <li><a href="syncmenu.jsp">Vinculacion de cuentas</a></li>
                             <li><a href="clienttransfermenu.jsp">Transferencia remota</a></li>
-                            <li><a href="clientaccounts.jsp">Movimientos</a></li>
+                            <li><a href="movements.jsp">Movimientos</a></li>
                         </ul>
                     </div> 
 
@@ -52,25 +52,13 @@
                                     </thead>
 
                                     <tbody>
-                                        <!--
-                                                                                <tr>
-                                                                                    <td class="column1"> 1</td>
-                                                                                    <td class="column2">Dolars</td>
-                                                                                    <td class="column3">5000</td>
-                                                                                    <td class="column4">Ahorro</td>
-                                                                                    <td class="column5">1000000</td>   
-                                                                                    <td class="column6">Activa</td>
-                                                                                </tr>
-                                        
-                                        -->
-
                                     <%
                                         int index = 0;
                                         for (int i = 1; i <= accounts.size(); i++) {
                                             index = i - 1;
 
                                             out.println("<tr>");
-                                            out.println(String.format("<td class=\"%s\"><a onclick=\"openModal(%d)\">%d</a></td>", "column1", accounts.get(index).getId(), accounts.get(index).getId()));
+                                            out.println(String.format("<td class=\"%s\">%d</td>", "column1", accounts.get(index).getId(), accounts.get(index).getId()));
                                             out.println(String.format("<td class=\"%s\">%s</td>", "column2", accounts.get(index).getCurrencyName()));
                                             out.println(String.format("<td class=\"%s\">%f</td>", "column3", accounts.get(index).getBalance()));
 
@@ -92,21 +80,8 @@
                             </table>
                         </div>
                     </div>
-                </div>
-
-
-                <div class="modal" id="movementModal">
-                    <div class="modal-content">
-                        <span class="closeBtn" onclick="closeModal()">X</span>
-                    </div>
-                </div>
-
-
-
+                </div>                        
             </div>
         </div>
-
-        <script src="mainjs.js"></script>
-        
     </body>
 </html>

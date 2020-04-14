@@ -102,6 +102,16 @@
         <url-pattern>/ClientTransfer</url-pattern>
         <url-pattern>/client-transfer</url-pattern>
     </servlet-mapping>
+    
+      <servlet>
+        <servlet-name>MovementServlet</servlet-name>
+        <servlet-class>servlets.movementServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MovementServlet</servlet-name>
+        <url-pattern>/movement</url-pattern>
+        <url-pattern>/client-movement</url-pattern>
+    </servlet-mapping>
   
 
     <session-config>

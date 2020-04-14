@@ -31,7 +31,7 @@
                         <li><a href="clientaccounts.jsp">Cuentas</a></li>
                         <li><a href="syncmenu.jsp">Vinculacion de cuentas</a></li>
                         <li><a href="clienttransfermenu.jsp">Transferencia remota</a></li>
-                        <li><a href="clientaccounts.jsp">Movimientos</a></li>
+                        <li><a href="movements.jsp">Movimientos</a></li>
                     </ul>
                 </div>
 

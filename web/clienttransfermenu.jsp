@@ -37,7 +37,7 @@
                             <li><a href="clientaccounts.jsp">Cuentas</a></li>
                             <li><a href="syncmenu.jsp">Vinculacion de cuentas</a></li>
                             <li><a href="clienttransfermenu.jsp">Transferencia remota</a></li>
-                            <li><a href="clientaccounts.jsp">Movimientos</a></li>
+                            <li><a href="movements.jsp">Movimientos</a></li>
                         </ul>
                     </div> 
 
@@ -98,9 +98,9 @@
                                             Cuenta Acreditar
                                         </option>
 
-                                        <%          
-                                            
+                                        <%                                          
                                             List<Favorite> favorites = favService.getAccounts(aux.getId());
+                                            
                                             if (!favorites.isEmpty()) {
                                                 String format = "<option value=\"%d\">%d</option>";
 
