@@ -26,7 +26,7 @@ import services.TransferService;
         name = "MovementServlet",
         urlPatterns = {"/Movement", "/client-movement"}
 )
-public class movementServlet extends HttpServlet {
+public class movementSrv extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

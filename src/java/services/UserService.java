@@ -21,6 +21,8 @@ public class UserService {
     private static final String CMD_LISTAR
             = "SELECT id, apellidos, nombre FROM estudiante ORDER BY apellidos; ";
     private static final String CMD_CREATEUSER = "insert into User(name, phone, type, password, id_user) values (?, ?, ?, ?, ?)";
+    private static final String CMD_UPDATE_PASSWORD = "update user set password = ?";
+    private static final String CMD_GET_PASSWORD = "select password from user where id  = ?";
 
     public boolean createUser(User user) {
         try (Connection connection = getConnection();
@@ -32,6 +34,30 @@ public class UserService {
             stm.setInt(3, user.getType());
             stm.setString(4, user.getPassword());
             stm.setString(5, user.getUserID());
+
+            /* Los inserts se hacen con execute vs execute query*/
+            if (stm.executeUpdate() != -1) {
+                return true;
+            }
+
+        } catch (IOException
+                | ClassNotFoundException
+                | IllegalAccessException
+                | InstantiationException
+                | SQLException ex) {
+            System.err.printf("Excepción: '%s'%n", ex.getMessage());
+
+        }
+        return false;
+
+    }
+
+    public boolean updatePassword(String password) {
+        try (Connection connection = getConnection();
+                PreparedStatement stm = connection.prepareStatement(CMD_UPDATE_PASSWORD)) {
+            stm.clearParameters();
+
+            stm.setString(1, password);
 
             /* Los inserts se hacen con execute vs execute query*/
             if (stm.executeUpdate() != -1) {
@@ -81,6 +107,38 @@ public class UserService {
         return r;
     }
 
+    public Optional<User> getPassword(int id) {
+        Optional<User> r = Optional.empty();
+        try (Connection connection = getConnection();
+                PreparedStatement stm = connection.prepareStatement(CMD_GET_PASSWORD)) {
+            stm.clearParameters();
+
+            stm.setInt(1, id);
+
+            try (ResultSet rs = stm.executeQuery()) {
+                if (rs.next()) {
+                    r = Optional.of(new User(
+                            null,
+                            null,
+                            0,
+                            rs.getString("password"),
+                            null
+                    ));
+                }
+            }   
+
+ 
+}
+catch (IOException
+                | ClassNotFoundException
+                | IllegalAccessException
+                | InstantiationException
+                | SQLException ex) {
+            System.err.printf("Excepción: '%s'%n", ex.getMessage());
+        }
+        return r;
+    }
+
     public Optional<User> getUserByID(int id) {
         Optional<User> r = Optional.empty();
         try (Connection connection = getConnection();
@@ -88,7 +146,7 @@ public class UserService {
             stm.clearParameters();
 
             stm.setInt(1, id);
-            
+
             try (ResultSet rs = stm.executeQuery()) {
                 if (rs.next()) {
                     r = Optional.of(new User(

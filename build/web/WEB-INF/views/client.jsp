@@ -17,7 +17,7 @@
         <jsp:useBean class="model.User" id="aux" scope="session">
         </jsp:useBean>
         <%
-            User aux1 = (User) request.getAttribute("userData");
+            User aux1 = (User) request.getSession(true).getAttribute("userData");
             aux.setUser(aux1);
         %>
 
@@ -32,6 +32,7 @@
                         <li><a href="syncmenu.jsp">Vinculacion de cuentas</a></li>
                         <li><a href="clienttransfermenu.jsp">Transferencia remota</a></li>
                         <li><a href="movements.jsp">Movimientos</a></li>
+                        <li><a href="password-change.jsp">Cambiar contrasena</a></li>
                     </ul>
                 </div>
 

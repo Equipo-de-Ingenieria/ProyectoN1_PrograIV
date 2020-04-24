@@ -28,7 +28,7 @@ import services.CurrencyService;
         name = "RetireServlet",
         urlPatterns = {"/Retire"}
 )
-public class RetireServlet extends HttpServlet {
+public class RetireSrv extends HttpServlet {
 
     private void processRequest(
             HttpServletRequest request, HttpServletResponse response)

@@ -23,7 +23,7 @@ import model.User;
         name = "CreateUserServlet",
         urlPatterns = {"/CreateUser", "/createuser-registry"}
 )
-public class CreateUserServlet extends HttpServlet {
+public class CreateUserSrv extends HttpServlet {
 
     private UserService userservice;
 

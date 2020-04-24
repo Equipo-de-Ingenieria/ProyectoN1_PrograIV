@@ -13,16 +13,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Account;
 
 /**
  *
  * @author Extreme PC
  */
 @WebServlet(
-        name = "UpdateAccountServlet",
-        urlPatterns = {"/UpdateAcoount", "/update-account"}
+        name = "CreateAccServlet",
+        urlPatterns = {"/CreateAcc", "/createacc-registry"}
 )
-public class UpdateAccountServlet extends HttpServlet {
+public class CreateAccountSrv extends HttpServlet {
 
     private final AccountService accountService = new AccountService();
 
@@ -30,21 +31,24 @@ public class UpdateAccountServlet extends HttpServlet {
             HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-      
-        int idAccount = Integer.parseInt(request.getParameter("cuenta"));
+        int idUser = Integer.parseInt(request.getParameter("idUsuario"));
+        String currencyName = request.getParameter("cambio");
         double transactionLimit = Double.parseDouble(request.getParameter("limite"));
-        int isActive = Integer.parseInt(request.getParameter("isActive"));
+        double balance = 0;
+        int accountType = Integer.parseInt(request.getParameter("tipoCuenta"));
+        int isActive = 1;
+
+        Account account = new Account(balance, idUser, currencyName, accountType, transactionLimit, isActive);
 
 
-
-        if (accountService.updateAccount(idAccount, transactionLimit, isActive)) {
+        if (accountService.createAccount(account)) {
             RequestDispatcher dispatcher = request.getRequestDispatcher(
-                    "accountupdate.jsp");
+                    "accountopening.jsp");
             dispatcher.forward(request, response);
         }
         else{
              RequestDispatcher dispatcher = request.getRequestDispatcher(
-                    "accountupdate.jsp");
+                    "usercreatemenu.jsp");
             dispatcher.forward(request, response);
         }
     }

@@ -2,7 +2,7 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>UserServlet</servlet-name>
-        <servlet-class>servlets.UserServlet</servlet-class>
+        <servlet-class>servlets.UserSrv</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
@@ -11,7 +11,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>CreateAccServlet</servlet-name>
-        <servlet-class>servlets.CreateAccountServlet</servlet-class>
+        <servlet-class>servlets.CreateAccountSrv</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CreateAccServlet</servlet-name>
@@ -20,7 +20,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>CreateUserServlet</servlet-name>
-        <servlet-class>servlets.CreateUserServlet</servlet-class>
+        <servlet-class>servlets.CreateUserSrv</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CreateUserServlet</servlet-name>
@@ -29,7 +29,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>UpdateAccountServlet</servlet-name>
-        <servlet-class>servlets.UpdateAccountServlet</servlet-class>
+        <servlet-class>servlets.UpdateAccountSrv</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UpdateAccountServlet</servlet-name>
@@ -38,7 +38,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>DepositServlet</servlet-name>
-        <servlet-class>servlets.DepositServlet</servlet-class>
+        <servlet-class>servlets.DepositSrv</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DepositServlet</servlet-name>
@@ -46,22 +46,20 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>RetireServlet</servlet-name>
-        <servlet-class>servlets.RetireServlet</servlet-class>
+        <servlet-class>servlets.RetireSrv</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RetireServlet</servlet-name>
         <url-pattern>/RetireServlet</url-pattern>
     </servlet-mapping>
-
     <servlet>
         <servlet-name>CreditServlet</servlet-name>
-        <servlet-class>servlets.CreditServlet</servlet-class>
-    </servlet> 
+        <servlet-class>servlets.CreditSrv</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CreditServlet</servlet-name>
         <url-pattern>/CreditServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet>
         <servlet-name>
             TransferServlet
@@ -70,7 +68,6 @@
             servlets.TransferServlet
         </servlet-class>
     </servlet>
-    
     <servlet-mapping>
         <servlet-name>
             TransferServlet
@@ -82,38 +79,33 @@
             /transfer-client
         </url-pattern>
     </servlet-mapping>
-    
     <servlet>
         <servlet-name>SyncServlet</servlet-name>
-        <servlet-class>servlets.SyncServlet</servlet-class>
-    </servlet> 
+        <servlet-class>servlets.SyncSrv</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SyncServlet</servlet-name>
         <url-pattern>/Sync</url-pattern>
         <url-pattern>/sync-account</url-pattern>
     </servlet-mapping>
-    
     <servlet>
         <servlet-name>ClientTransferServlet</servlet-name>
-        <servlet-class>servlets.ClientTransfer</servlet-class>
+        <servlet-class>servlets.ClientTransferSrv</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ClientTransferServlet</servlet-name>
         <url-pattern>/ClientTransfer</url-pattern>
         <url-pattern>/client-transfer</url-pattern>
     </servlet-mapping>
-    
-      <servlet>
+    <servlet>
         <servlet-name>MovementServlet</servlet-name>
-        <servlet-class>servlets.movementServlet</servlet-class>
+        <servlet-class>servlets.movementSrv</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MovementServlet</servlet-name>
         <url-pattern>/movement</url-pattern>
         <url-pattern>/client-movement</url-pattern>
     </servlet-mapping>
-  
-
     <session-config>
         <session-timeout>
             30

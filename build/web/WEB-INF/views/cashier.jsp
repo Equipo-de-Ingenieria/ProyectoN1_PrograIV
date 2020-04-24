@@ -13,9 +13,8 @@
     </head>
     <jsp:useBean class="model.User" id="aux" scope="session">
     </jsp:useBean>
-    <%
-
-        User aux1 = (User) request.getAttribute("userData");
+    <% 
+        User aux1 = (User) request.getSession(true).getAttribute("userData");
         aux.setUser(aux1);
     %>
     <body>

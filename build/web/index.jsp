@@ -12,7 +12,7 @@
         <div class="wrapper">
             <div class="content">
                 <div class="loginContainer">
-                    <form class="loginForm" action="UserInfo">
+                    <form class="loginForm" action="UserInfo" method="post">
                         <div class="box1">
                             <span>
                                 Login

@@ -39,6 +39,7 @@ public class User implements Serializable {
         this.name = name;
     }
     
+  
     
 
     public User() {

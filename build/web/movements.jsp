@@ -33,7 +33,8 @@
                             <li><a href="clientaccounts.jsp">Cuentas</a></li>
                             <li><a href="syncmenu.jsp">Vinculacion de cuentas</a></li>
                             <li><a href="clienttransfermenu.jsp">Transferencia remota</a></li>
-                            <li><a href="clientaccounts.jsp">Movimientos</a></li>
+                            <li><a href="movements.jsp">Movimientos</a></li>
+                            <li><a href="password-change.jsp">Cambiar Constraseña</a></li>
                         </ul>
                     </div> 
 
@@ -73,11 +74,11 @@
                                     %>
 
                                 </select>
-                                </div>
-                                    
-                                    <div class="boxButton">
-                                        <button> Search </button>
-                                    </div>
+                            </div>
+
+                            <div class="boxButton">
+                                <button> Search </button>
+                            </div>
                         </form>
 
                     </div>

@@ -16,7 +16,7 @@ import model.User;
         name = "UserServlet",
         urlPatterns = {"/UserInfo", "/user-registry"}
 )
-public class UserServlet extends HttpServlet {
+public class UserSrv extends HttpServlet {
 
     private final UserService userService = new UserService();
 
@@ -30,13 +30,13 @@ public class UserServlet extends HttpServlet {
         User aux = null;
         if (id != null && pass != null) {
             /*Puede ser un nombre aleatorio para trabajar en el servlet luego UserData*/
-            request.setAttribute("userData", null);
+            request.getSession(true).setAttribute("userData", null);
 
             /*Trae la informacion de las bases de datos y  se lo asigna al userData*/
             userService.getUser(id, pass)
-                    .ifPresent(user -> request.setAttribute("userData", user));
+                    .ifPresent(user -> request.getSession(true).setAttribute("userData", user));
 
-            aux = (User) request.getAttribute("userData");
+            aux = (User) request.getSession(true).getAttribute("userData");
             int i = 0;
 
         }

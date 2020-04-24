@@ -28,7 +28,7 @@ import services.UserService;
         urlPatterns = {"/Sync", "/sync-account"}
 )
 
-public class SyncServlet extends HttpServlet {
+public class SyncSrv extends HttpServlet {
 
     private void processRequest(
             HttpServletRequest request, HttpServletResponse response)

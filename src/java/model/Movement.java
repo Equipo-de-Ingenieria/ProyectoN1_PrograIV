@@ -5,13 +5,14 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
  *
  * @author Erick
  */
-public class Movement {
+public class Movement implements Serializable{
 
     private Date date;
     private double debit, credit;

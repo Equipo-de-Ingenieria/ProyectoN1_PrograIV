@@ -29,6 +29,7 @@
                             <li><a href="syncmenu.jsp">Vinculacion de cuentas</a></li>
                             <li><a href="clienttransfermenu.jsp">Transferencia remota</a></li>
                             <li><a href="movements.jsp">Movimientos</a></li>
+                            <li><a href="password-change.jsp">Cambiar Constraseña</a></li>
                         </ul>
                     </div> 
 
@@ -49,9 +50,8 @@
                                     <tbody>
 
                                     <%
-                                        List <model.Movement> movementsList =  (java.util.ArrayList <model.Movement>) request.getAttribute("movementsList");
-                    
-                                        
+                                        List<model.Movement> movementsList = (java.util.ArrayList<model.Movement>) request.getAttribute("movementsList");
+
                                         int index = 0;
                                         for (int i = 1; i <= movementsList.size(); i++) {
                                             index = i - 1;

@@ -29,7 +29,7 @@ import services.TransferService;
         urlPatterns = {"/ClientTransfer", "/client-transfer"}
 )
 
-public class ClientTransfer extends HttpServlet {
+public class ClientTransferSrv extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String strAccount;
