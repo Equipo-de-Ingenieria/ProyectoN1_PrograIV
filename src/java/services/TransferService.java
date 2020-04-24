@@ -22,7 +22,7 @@ import model.Transfer;
  */
 public class TransferService {
 
-    private static final String CREATETRANSFER = "insert into Transfer(depositor_account, creditor_account, amount, date, detail) values (?, ?, ?, ?, ?, ?)";
+    private static final String CREATETRANSFER = "insert into Transfer(depositor_account, creditor_account, amount, date, detail) values (?, ?, ?, ?, ?)";
     private static final String LISTTRANSFERSBYDEPOSITIOR = "select id, depositor_account, creditor_account, amount, date, detail from transfer where depositor_account = ?";
     private static final String LISTTRANSFERSBYDECREDITOR = "select id,  depositor_account, creditor_account, amount, date, detail from transfer where creditor_account = ?";
 

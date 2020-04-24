@@ -18,6 +18,7 @@ public class Transfer implements Serializable {
         this.creditorAccount = creditorAccount;
         this.amount = amount;
         this.date = date;
+        this.detail = detail;
     }
 
     public Transfer(int depositorAccount, int creditorAccount, double amount, Date date, String detail) {
@@ -25,6 +26,7 @@ public class Transfer implements Serializable {
         this.creditorAccount = creditorAccount;
         this.amount = amount;
         this.date = date;
+        this.detail = detail;
     }
 
 //<editor-fold defaultstate="collapsed" desc="Getter and Setter">

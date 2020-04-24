@@ -47,11 +47,11 @@ public class UserServlet extends HttpServlet {
         }
         if (aux.getType() == 1) {
             RequestDispatcher dispatcher = request.getRequestDispatcher(
-                    "cashier.jsp");
+                    "WEB-INF/views/cashier.jsp");
             dispatcher.forward(request, response);
         } else if (aux.getType() == 0) {
             RequestDispatcher dispatcher = request.getRequestDispatcher(
-                    "client.jsp");
+                    "WEB-INF/views/client.jsp");
             dispatcher.forward(request, response);
         } 
     }

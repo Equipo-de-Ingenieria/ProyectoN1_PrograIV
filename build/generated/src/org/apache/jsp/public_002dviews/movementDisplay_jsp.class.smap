@@ -1,0 +1,17 @@
+SMAP
+movementDisplay_jsp.java
+JSP
+*S JSP
+*F
++ 0 movementDisplay.jsp
+public-views/movementDisplay.jsp
+*L
+1,18:50
+19:68,11
+19,2:75
+20,7:79
+27:86,3
+28,24:89
+52,18:114
+69,12:132
+*E
