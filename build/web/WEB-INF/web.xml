@@ -11,7 +11,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>CreateAccServlet</servlet-name>
-        <servlet-class>servlets.CreateAccountSrv</servlet-class>
+        <servlet-class>servlets.CreateAccountServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CreateAccServlet</servlet-name>
@@ -20,7 +20,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>CreateUserServlet</servlet-name>
-        <servlet-class>servlets.CreateUserSrv</servlet-class>
+        <servlet-class>servlets.CreateUserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CreateUserServlet</servlet-name>
@@ -29,7 +29,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>UpdateAccountServlet</servlet-name>
-        <servlet-class>servlets.UpdateAccountSrv</servlet-class>
+        <servlet-class>servlets.UpdateAccountServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UpdateAccountServlet</servlet-name>
@@ -38,7 +38,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>DepositServlet</servlet-name>
-        <servlet-class>servlets.DepositSrv</servlet-class>
+        <servlet-class>servlets.DepositServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DepositServlet</servlet-name>
@@ -46,7 +46,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>RetireServlet</servlet-name>
-        <servlet-class>servlets.RetireSrv</servlet-class>
+        <servlet-class>servlets.RetireServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RetireServlet</servlet-name>
@@ -54,7 +54,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>CreditServlet</servlet-name>
-        <servlet-class>servlets.CreditSrv</servlet-class>
+        <servlet-class>servlets.CreditServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CreditServlet</servlet-name>

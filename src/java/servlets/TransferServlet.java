@@ -28,7 +28,7 @@ import services.TransferService;
         name = "TransferServlet",
         urlPatterns = {"/TransferClient", "/transfer-client"}
 )
-public class TransferSrv extends HttpServlet {
+public class TransferServlet extends HttpServlet {
 
     private void processRequest(
             HttpServletRequest request, HttpServletResponse response)

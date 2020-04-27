@@ -25,7 +25,7 @@ import services.AccountTypeService;
 @WebServlet(
         name = "CreditServlet",
         urlPatterns = {"/CreditServlet"})
-public class CreditSrv extends HttpServlet {
+public class CreditServlet extends HttpServlet {
 
     private void processRequest(
             HttpServletRequest request, HttpServletResponse response)

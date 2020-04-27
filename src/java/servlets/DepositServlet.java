@@ -28,7 +28,7 @@ import services.CurrencyService;
         name = "DepositServlet",
         urlPatterns = {"/DepositServlet"}
 )
-public class DepositSrv extends HttpServlet {
+public class DepositServlet extends HttpServlet {
 
     private void processRequest(
             HttpServletRequest request, HttpServletResponse response)
