@@ -21,7 +21,7 @@ public class UserService {
     private static final String CMD_LISTAR
             = "SELECT id, apellidos, nombre FROM estudiante ORDER BY apellidos; ";
     private static final String CMD_CREATEUSER = "insert into User(name, phone, type, password, id_user) values (?, ?, ?, ?, ?)";
-    private static final String CMD_UPDATE_PASSWORD = "update user set password = ?";
+    private static final String CMD_UPDATE_PASSWORD = "update user set password = ? where id = ?";
     private static final String CMD_GET_PASSWORD = "select password from user where id  = ?";
 
     public boolean createUser(User user) {
@@ -52,12 +52,13 @@ public class UserService {
 
     }
 
-    public boolean updatePassword(String password) {
+    public boolean updatePassword(String password, int id) {
         try (Connection connection = getConnection();
                 PreparedStatement stm = connection.prepareStatement(CMD_UPDATE_PASSWORD)) {
             stm.clearParameters();
 
             stm.setString(1, password);
+            stm.setInt(2, id);
 
             /* Los inserts se hacen con execute vs execute query*/
             if (stm.executeUpdate() != -1) {

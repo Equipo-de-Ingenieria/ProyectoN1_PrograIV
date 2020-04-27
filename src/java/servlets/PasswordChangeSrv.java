@@ -46,7 +46,6 @@ public class PasswordChangeSrv extends HttpServlet {
         newPassword = request.getParameter("new-password");
         message = null;
 
-
         User user = (User) request.getSession(true).getAttribute("userData");
         UserService userService = new UserService();
 
@@ -65,7 +64,7 @@ public class PasswordChangeSrv extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("clientmessage.jsp");
         }
 
-        if (!userService.updatePassword(newPassword)) {
+        if (!userService.updatePassword(newPassword, user.getId())) {
             message = "Error actualizando la contraseña";
             request.setAttribute("message", message);
             RequestDispatcher dispatcher = request.getRequestDispatcher("clientmessage.jsp");
