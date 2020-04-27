@@ -78,11 +78,12 @@ public class RetireServlet extends HttpServlet {
 
             transaux = new Transfer(0, aux.get().getId(), 1, sub, sqlDate, "Retiro Cajero");
             transferservice.createTransfer(transaux);
-        }else{
-            
+            message = "Se realizo el retiro exitosamente!";
+
+        } else {
+
             message = "Error, dinero insuficiente";
         }
-        message = "Se realizo el retiro exitosamente!";
         request.setAttribute("message", message);
         RequestDispatcher dispatcher = request.getRequestDispatcher(
                 "messege.jsp");

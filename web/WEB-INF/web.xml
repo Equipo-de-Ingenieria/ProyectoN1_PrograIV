@@ -81,7 +81,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>SyncServlet</servlet-name>
-        <servlet-class>servlets.SyncSrv</servlet-class>
+        <servlet-class>servlets.SyncServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SyncServlet</servlet-name>

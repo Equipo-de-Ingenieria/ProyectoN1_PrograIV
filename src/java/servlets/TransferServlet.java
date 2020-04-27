@@ -22,7 +22,7 @@ import services.TransferService;
 
 /**
  *
- * @author Erick
+ * @author Zhou Zheng
  */
 @WebServlet(
         name = "TransferServlet",

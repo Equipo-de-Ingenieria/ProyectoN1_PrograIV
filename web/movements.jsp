@@ -45,7 +45,7 @@
                                     <div class="boxTitle1">
                                         <span>
                                             <strong>
-                                                Transferencias
+                                                Consultar
                                             </strong>
                                         </span>
                                     </div>
