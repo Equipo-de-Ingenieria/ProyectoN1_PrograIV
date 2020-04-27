@@ -39,48 +39,64 @@
                     </div> 
 
                     <div class="maincontents">
-                        <div class="containerBox">         
-                            <form class="formBox" action="client-movement">
-                                <div class="selectBox">
-                                    <select class="select" name="accountID"  required>
-                                        <option value="" disabled selected hidden>
-                                            Cuenta a Consultar
-                                        </option>
+                        <div class="containerBox">
+                            <div class="containerFields">
+                                <form class="formBox" action="client-movement">
+                                    <div class="boxTitle1">
+                                        <span>
+                                            <strong>
+                                                Transferencias
+                                            </strong>
+                                        </span>
+                                    </div>
 
-                                    <%
-                                        if (!accounts.isEmpty()) {
-                                            String formatActive = "<option name value=\"%d\">%d</option>";
-                                            String formatInactive = "<option value=\"\" disabled selected hidden>%d</option>";
 
-                                            for (Account account : accounts) {
-                                                switch (account.getIsActive()) {
-                                                    case 0:
-                                                        out.println(String.format(formatInactive, account.getId()));
-                                                        break;
 
-                                                    case 1:
-                                                        out.println(String.format(formatActive, account.getId(), account.getId()));
-                                                        break;
+                                    <div class="selectBox">
+                                        <select class="select" name="accountID"  required>
+                                            <option value="" disabled selected hidden>
+                                                Cuenta a Consultar
+                                            </option>
 
-                                                    default:
-                                                        out.println("");
-                                                        break;
+                                        <%
+                                            if (!accounts.isEmpty()) {
+                                                String formatActive = "<option name value=\"%d\">%d</option>";
+                                                String formatInactive = "<option value=\"\" disabled selected hidden>%d</option>";
+
+                                                for (Account account : accounts) {
+                                                    switch (account.getIsActive()) {
+                                                        case 0:
+                                                            out.println(String.format(formatInactive, account.getId()));
+                                                            break;
+
+                                                        case 1:
+                                                            out.println(String.format(formatActive, account.getId(), account.getId()));
+                                                            break;
+
+                                                        default:
+                                                            out.println("");
+                                                            break;
+                                                    }
                                                 }
+
                                             }
 
-                                        }
+
+                                        %>
+
+                                    </select>
+                                </div>
 
 
-                                    %>
 
-                                </select>
-                            </div>
+                                <div class="buttonBox">
+                                    <button class="submitBtn" type="submit">
+                                        Buscar
+                                    </button>
+                                </div>
 
-                            <div class="boxButton">
-                                <button> Search </button>
-                            </div>
-                        </form>
-
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
